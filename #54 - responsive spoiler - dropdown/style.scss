@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+.container {
+  display: block;
+  max-width: 1240px;
+  margin: 0 auto;
+
+  width: 100%;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: #d0d0d0;
+  text-align: center;
+}
+
+
+h4 {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.accordion .spoiler__title {
+  border-bottom: 1px solid #537895;
+}
+
+.multispoiler .spoiler__title {
+  border-bottom: 1px solid darkslategray;
+}
+
+.spoiler__title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spoiler_data {
+  padding: 20px 0;
+}
+
+
+._spoiler span {
+  display: block;
+}
+
+span {
+  display: none;
+  padding: 20px;
+  line-height: 0;
+  height: 0;
+  position: relative;
+
+  &::before, &::after {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    transition: transform 0.3s ease 0s;
+  }
+
+  &::after {
+    transform: rotate(-90deg);
+  }
+
+  ._show &{
+    &::after {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.fa-angle-double-down {
+  transition: .3s;
+  ._show & {
+    transform: rotate(-180deg);
+  }
+}
+
+.block__title
+.block._init .block__title::after {
+  transform: rotate(-90deg);
+}
+.block._init .block__title._active::after {
+  transform: rotate(0deg);
+}
+
+
+.accordion,
+.wrapper,
+.multispoiler {
+  margin: 20px 0;
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+
+.accordion {
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
+.wrapper {
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+}
+
+.multispoiler {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+}
+
+
+.brown {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(147,67,67,1) 0%, rgba(111,27,27,1) 90% );
+}
+
+.deepblue {
+  background-image: radial-gradient( circle 1900px at 51.2% 51%,  rgba(11,27,103,1) 0%, rgba(16,66,157,1) 0%, rgba(11,27,103,1) 17.3%, rgba(11,27,103,1) 58.8%, rgba(11,27,103,1) 71.4%, rgba(16,66,157,1) 100.2%, rgba(187,187,187,1) 100.2% );
+}
+
+

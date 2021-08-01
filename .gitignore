@@ -1,0 +1,6 @@
+# Project exclude paths
+/#52 - upload images/node_modules/
+/node_modules/
+dist
+.cache
+.idea

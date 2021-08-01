@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Dom shift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="content-1">
+
+        <div class="element-1" data-ag-shifter=".element-9 , 1240">1</div>
+        <div class="element-2">2</div>
+        <div class="element-3">3</div>
+
+    </div>
+
+    <hr>
+
+    <div class="content-2">
+
+        <div class="element-4" data-ag-shifter=".element-7 , 1240 , beforebegin">4</div>
+        <div class="element-5" data-ag-shifter=".element-2 , 940">5</div>
+        <div class="element-6">6</div>
+
+    </div>
+
+    <hr>
+
+    <div class="content-3">
+
+        <div class="element-7" data-ag-shifter=".element-2 , 940, afterbegin">7</div>
+        <div class="element-8" data-ag-shifter=".element-3 , 1240, beforeend">8</div>
+        <div class="element-9">9</div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+

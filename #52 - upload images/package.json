@@ -1,0 +1,14 @@
+{
+  "name": "upload_images",
+  "version": "1.0.0",
+  "description": "loading images",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "G.A.S.",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^8.7.1"
+  }
+}

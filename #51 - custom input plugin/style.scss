@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+$height: 40px;
+
+.wrap {
+  width: 400px;
+}
+
+[data-ga-select] {
+  width: 100%;
+  position: relative;
+}
+
+.ga-select__input {
+  border: 1px solid #b4b4b4;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+
+  .open & {
+    border-bottom: none;
+  }
+
+  img {
+    max-width: 25px;
+    max-height: 25px;
+    width: 100%;
+  }
+}
+
+.ga-select__dropdown {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  border: 1px solid #b4b4b4;
+  border-radius: 3px;
+  top: $height;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+
+
+  .selected {
+    background-color: green;
+  }
+
+  .open & {
+    display: block;
+    border-top: none;
+    margin-top: -2px;
+  }
+
+}
+
+.ga-select__list {
+  list-style: none;
+  line-height: $height;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0 20px;
+    transition: .3s;
+    &:hover {
+      background-color: #dadada;
+    }
+  }
+  li:not(:last-child) {
+    border-bottom: 1px solid #dadada;
+  }
+}
+
+.ga-select__backdrop {
+  position: fixed;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  display: none;
+
+  .open & {
+    display: initial;
+    z-index: 0;
+  }
+}

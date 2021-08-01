@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background: #0f0c29; /* fallback for old browsers */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+.container {
+  padding: 40px;
+  background: #141E30; /* fallback for old browsers */
+  background: linear-gradient(to right, #243B55, #141E30);
+  color: white;
+}
+
+.form-control {
+  position: relative;
+  width: 300px;
+  color: white;
+  margin: 20px 0;
+  padding: 10px 0;
+  overflow: hidden;
+
+  input {
+    border: none;
+    background-color: transparent;
+    color: white;
+    display: block;
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 100%;
+    transition: .3s;
+
+    &:focus, &:active {
+      outline: none;
+      color: #8EC5FC;
+      & + label span {
+        transform: translateY(-30px);
+      }
+    }
+
+  }
+
+  .border {
+    display: block;
+    margin-top: -15px;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, rgba(8, 20, 43, 0), #8EC5FC);
+    animation: 2s animateTop linear infinite;
+  }
+
+  label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+
+    span {
+      font-size: 18px;
+      display: inline-block;
+      transition: .2s cubic-bezier(0.68,-.55,.265,1.55);
+    }
+  }
+}
+
+@keyframes animateTop {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.btn {
+  display: inline-block;
+  background-color: #8EC5FC;
+  border: none;
+  font-size: 16px;
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  width: 100%;
+  margin: 20px 0;
+  text-transform: uppercase;
+
+  transition: .3s;
+
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+a {
+  color: #8EC5FC;
+  text-decoration: none;
+}

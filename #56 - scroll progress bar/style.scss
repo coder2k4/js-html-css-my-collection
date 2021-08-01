@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#scrollpath {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: rgba(0,0,0,0.05);
+}
+
+#progressbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #008aff, #fcdd7f);
+  animation: progress 5s linear infinite;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #008aff, #fcdd7f);
+    filter: blur(30px);
+  }
+}
+
+@keyframes progress {
+  0%,100% {
+    //filter: hue-rotate(0deg);
+    filter: contrast(100%) brightness(100%);
+  }
+  50% {
+    //filter: hue-rotate(360deg);
+    filter: contrast(275%) brightness(110%);
+
+  }
+}

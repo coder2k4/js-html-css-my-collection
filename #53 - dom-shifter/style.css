@@ -1,0 +1,48 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+.content-1,.content-2,.content-3 {
+    display: flex;
+}
+
+.content-1 > *, .content-2 > *, .content-3 > * {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.element-1 {
+    background-color: blue;
+}
+.element-2 {
+    background-color: red;
+}
+.element-3 {
+    background-color: green;
+}
+
+.element-4 {
+    background-color: purple;
+}
+.element-5 {
+    background-color: yellow;
+}
+.element-6 {
+    background-color: chocolate;
+}
+
+
+.element-7 {
+    background-color: aqua;
+}
+
+.element-8 {
+    background-color: darksalmon;
+}
+
+.element-9 {
+    background-color: cadetblue;
+}
