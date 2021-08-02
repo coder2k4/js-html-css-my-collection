@@ -23,6 +23,9 @@
  * @version 1.0.0 08/2021
  *
  * @constructor
+ * @param {boolean} settings.closePopupsParents Закрывать радительский попап, если активирован попап из другого попапа
+ * @param {boolean} settings.lockScrollBar Блокировать ли scrollbar
+ * @param {boolean} settings.stopShutteEffect Нужно ли отменять shutter effect для элементов в асолютом и фикседом
  * @param {object} settings Настройки для конструктора.
  * @param {string} settings.selector Селектор активаторов, должен сожержать селектор на контент
  * @param {string} settings.overlayTransition Транзишн для оверлея
@@ -35,14 +38,14 @@
  * @param {string} settings.overlayClass Технический класс при открытии попапа на оверлее
  * @param {string} settings.contentClass Технический класс при открытии попапа на контенте
  * @param {string} settings.contentCloseButtonSelector Селектор кнопки закрыть в контенте
- * @param {boolean} settings.closePopupsParents Закрывать радительский попап, если активирован попап из другого попапа
- * @param {boolean} settings.lockScrollBar Блокировать ли scrollbar
- * @param {boolean} settings.stopShutteEffect Нужно ли отменять shutter effect для элементов в асолютом и фикседом
  */
 class AgPopup {
 
     constructor(settings = {
 
+        closePopupsParents: true,  // Закрывать радительский попап, если активирован попап из другого попапа
+        lockScrollBar: true,       // Блокировать ли scrollbar
+        stopShutteEffect: true,    // Нужно ли отменять shutter effect для элементов в асолютом и фикседом
         selector: '[data-ag-popup]',   // Селектор активаторов, должен сожержать селектор на контент
         overlayTransition: '.8s ease', // Транзишн для оверлея
         contentTransition: '.8s ease .2s', // Транзишн для контента
@@ -54,9 +57,6 @@ class AgPopup {
         overlayClass: '_open', // Технический класс при открытии попапа на оверлее
         contentClass: '_open', // Технический класс при открытии попапа на контенте
         contentCloseButtonSelector: '[data-ag-popup-close]', // Селектор кнопки закрыть в контенте
-        closePopupsParents: true,  // Закрывать радительский попап, если активирован попап из другого попапа
-        lockScrollBar: true,       // Блокировать ли scrollbar
-        stopShutteEffect: true    // Нужно ли отменять shutter effect для элементов в асолютом и фикседом
 
     }) {
         // Настройки
@@ -89,7 +89,6 @@ class AgPopup {
 
         this.#setup()
     }
-
 
     #setup() {
 
@@ -133,7 +132,6 @@ class AgPopup {
         // Рендерим найденные окна, добавляем необходимые стили
         this.#render()
     }
-
 
     #render() {
 
@@ -235,23 +233,24 @@ class AgPopup {
         this.#setupEvents()
     }
 
-
     #setupEvents() {
 
         // пробрасываем по всем попапам евент по активатору
         this.popups.forEach(popup => {
 
-
             popup.$activator.addEventListener('click', this.activatorClickHandler(popup))
             popup.$overlay.addEventListener('click', this.overlayClickHandler(popup))
-
+            // popup.$overlay.addEventListener('keydown', this.keyboardEventHandler)
+            //todo добавить закрытие по клавише ESC!
         })
+
+        // Закрываем все попапы если пользователь нажал ESC
+        document.body.addEventListener('keydown', this.keyboardEventHandler)
 
         // this.uniquePopups.forEach(popup => {
         //     popup.$overlay.addEventListener('click', this.overlayClickHandler(popup))
         // })
     }
-
 
     // Нажатие на активатор
     activatorClickHandler = (popup) => {
@@ -272,24 +271,29 @@ class AgPopup {
     overlayClickHandler = (popup) => {
         return (event) => {
 
-            event.preventDefault() // Отменяем переходы, если это ссылка
-            event.stopPropagation()
-
-
-            if (event.target === popup.$overlay || Array.from(popup.$closeBtn).find($btn => $btn === event.target)) {
-                this.close(popup)
+            console.log(event)
+            if (event.key === "Escape") {
+                console.log("Escape")
             }
 
+            if (event.target === popup.$overlay || Array.from(popup.$closeBtn).find($btn => $btn === event.target) || event.which === 27) {
+                event.preventDefault() // Отменяем переходы, если это ссылка
+                this.close(popup)
+            }
 
         }
     }
 
+    keyboardEventHandler = (event) => {
+        if (event.key === "Escape") {
+            this.closeAll()
+        }
+    }
 
     // Закрываем все popup
     closeAll() {
         this.popups.forEach(popup => this.close(popup))
     }
-
 
     // Стили для открытия окна
     open(popup) {
@@ -399,7 +403,6 @@ class AgPopup {
 
     }
 
-
     transitionComplete(propertyName, popup) {
         // if (propertyName === 'opacity') {
         // Анимация закончилась
@@ -411,7 +414,6 @@ class AgPopup {
         }
         // }
     }
-
 
     scrollBarOpen() {
         // Если мы не хотим скрывать скроллбар, то выходим
@@ -440,7 +442,6 @@ class AgPopup {
         document.body.style.overflowY = 'hidden'
     }
 
-
     shiftAll() {
         this.shiftIndent = this.calcScrollbarWidth
 
@@ -453,7 +454,6 @@ class AgPopup {
             this.shiftElement($fixed, 'paddingRight')
         })
     }
-
 
     // Делаем оступ в стилях на ширину скролла
     shiftElement($node, option = 'marginRight') {
@@ -498,4 +498,4 @@ class AgPopup {
 
 }
 
-export default  AgPopup
+export default AgPopup

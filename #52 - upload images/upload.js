@@ -21,8 +21,6 @@ class AGUploadImages {
     }
 
 
-
-
     // Настраиваем наш инпут
     #setup() {
         // Если установлен параметр на передачу множественных файлов
@@ -62,11 +60,7 @@ class AGUploadImages {
             this.uploadHandler = this.uploadHandler.bind(this)
             this.upload.addEventListener('click', this.uploadHandler)
         }
-
     }
-
-
-
 
 
     #renderElement(element, classes = [], content) {
