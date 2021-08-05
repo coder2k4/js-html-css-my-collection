@@ -351,7 +351,7 @@ class AgPopup {
             popup.$overlay.removeEventListener('transitionend', transitionendHandler);
         };
 
-        // Событие на завершения транзишена.
+        // Событие на завершения транзиент.
         popup.$overlay.addEventListener('transitionend', transitionendHandler, false);
 
 
