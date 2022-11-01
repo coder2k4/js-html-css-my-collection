@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize with js</title>
+    <link rel="stylesheet" href="style.scss">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="settings">
+
+        <div class="upload-box">
+            <input type="file" accept="image/*">
+            <img src="upload.svg" alt="Загрузите картинку">
+            <p>Загрузите картинку</p>
+        </div>
+
+
+        <div class="settings__row">
+            <div class="settings__col">
+                <label for="width">Ширина:</label>
+                <input type="number" id="width">
+            </div>
+            <div class="settings__col">
+                <label for="height">Высота:</label>
+                <input type="number" id="height">
+            </div>
+        </div>
+
+        <div class="settings__row">
+            <div class="settings__box">
+                <input type="checkbox" id="ratio">
+                <label for="ratio">Зафиксировать по соотношению сторон</label>
+            </div>
+        </div>
+
+        <div class="settings__row">
+            <div class="settings__box">
+                <input type="checkbox" id="quality">
+                <label for="quality">Уменьшить качество</label>
+            </div>
+        </div>
+
+        <div class="settings__row">
+                <input type="submit" id="download" value="Скачать">
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: white;
+  background: linear-gradient(170deg, rgba(63, 49, 73, 0.8) 20%, rgba(68, 49, 73, 0.5) 20%, rgba(61, 49, 73, 0.5) 35%, rgba(57, 41, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  height: 100vh;
+}
+
+
+.settings {
+  background-color: #dedede;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+
+.upload-box {
+  height: 300px;
+  width: 500px;
+  border: 1px dashed mediumpurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+
+  &.active {
+    img {
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      padding: 20px;
+    }
+    p {
+      display: none;
+    }
+  }
+
+  img {
+    max-width: 200px;
+  }
+}
+
+.settings__row {
+  margin-top: 10px;
+  display: flex;
+}
+
+.settings__col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 10px;
+}
+
+.settings__box {
+  margin: 0 80px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+input {
+  border-radius: 5px;
+  border: none;
+  &[type="number"], &[type="submit"] {
+    height: 30px;
+    padding: 5px;
+    font-weight: bold;
+  }
+
+  &[type="file"]{
+    display: none;
+  }
+
+  &[type="submit"]{
+    width: 340px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid mediumpurple;
+    color: white;
+    background-color: mediumpurple;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+  &[type="checkbox"]{
+    border-color: mediumpurple;
+    accent-color: mediumpurple;
+  }
+}
+
