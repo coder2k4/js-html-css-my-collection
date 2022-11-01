@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: white;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  height: 100vh;
+}
+
+.password-generator {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid gray;
+  }
+}
+
+.password-generator__input {
+  display: flex;
+  position: relative;
+  input {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 100%;
+    font-weight: bold;
+    color: #42b983;
+  }
+
+  span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+
+
+.password-generator__strength-indicator {
+  height: 2px;
+  width: 100%;
+  background-color: gray;
+  margin: 10px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 50%;
+    background-color: gold;
+    position: absolute;
+  }
+}
+
+.password-generator__length {
+  margin: 20px 0;
+  input {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.password-generator__length-detail {
+  display: flex;
+  align-items: flex-end;
+  span {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 5px;
+    line-height: 1;
+  }
+}
+
+.password-generator__length-title {
+
+}
+
+.password-generator__settings {
+}
+
+.password-generator__settings-title {
+}
+
+.password-generator__settings-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    width: calc(100% / 2);
+    margin: 5px 0;
+  }
+
+  input {
+    accent-color: #39f6cf;
+  }
+
+}
+
+.password-generator__generate {
+  margin: 20px auto 0;
+  display: block;
+  background-color: #3eefa9;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 5px;
+  color: #258546;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+
+
