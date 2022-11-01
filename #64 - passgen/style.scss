@@ -33,9 +33,12 @@ body {
 
   h1 {
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 
-    border-bottom: 1px solid gray;
+    border-bottom: 3px solid rgba(#40e98a, .2);
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -71,10 +74,22 @@ body {
   &::before {
     content: '';
     height: 100%;
-    width: 50%;
-    background-color: gold;
+    width: 0%;
     position: absolute;
   }
+}
+
+#weak::before {
+  width: 20%;
+  background-color: red;
+}
+#medium::before {
+  width: 50%;
+  background-color: gold;
+}
+#hard::before {
+  width: 100%;
+  background-color: #03d303;
 }
 
 .password-generator__length {
@@ -82,6 +97,7 @@ body {
   input {
     width: 100%;
     margin: 10px 0;
+    cursor: pointer;
   }
 }
 
